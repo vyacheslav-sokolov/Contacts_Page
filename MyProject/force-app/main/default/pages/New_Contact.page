@@ -1,0 +1,45 @@
+<apex:page standardController="Contact" showHeader="true" standardStylesheets="true" sidebar="true" applyHtmlTag="true" applyBodyTag="true"  docType="html-5.0">  
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+        <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="x-ua-compatible" content="ie=edge" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <apex:slds />
+        </head>
+        <apex:form id="form">
+            <apex:pageBlock >
+                <div class="slds-page-header"> 
+                    <div class="slds-grid">
+                        <div class="slds-col slds-has-flexi-truncate">
+                            <div class="slds-media slds-no-space slds-grow">
+                                <div class="slds-media__figure">
+                                    <svg aria-hidden="true" class="slds-icon slds-icon-standard-contact">
+                                        <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#contact')}"></use>
+                                    </svg>
+                                </div>
+                                <div class="slds-media__body">
+                                    <p class="slds-text-title_caps slds-line-height_reset">Create</p>
+                                    <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate"  title="My Contacts">New Contact</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-no-flex slds-grid slds-align-top">
+                            <div class="slds-button-group" role="group">
+                                <apex:commandButton styleClass="slds-button slds-button_neutral" style="margin-right: 10px;" action="{!save }" value="Save" />
+                                <apex:outputLink title="" value="/lightning/n/Contacts_Manager" styleClass="slds-button slds-button_neutral">Cancel</apex:outputLink>
+                            </div>
+                        </div>
+                    </div>   
+                    <apex:pageMessages />
+                    <apex:pageBlockSection columns="1" html-style="margin-left: 30em;">
+                        <apex:inputField value="{!Contact.firstName}" />
+                        <apex:inputField value="{!Contact.lastName}" />
+                        <apex:inputField value="{!Contact.Email}" />
+                        <apex:inputField value="{!Contact.Contact_Level__c}"/>
+                        <apex:inputField value="{!Contact.AccountId}"/>
+                    </apex:pageBlockSection>
+                </div>
+            </apex:pageBlock>
+        </apex:form>
+    </html>
+</apex:page>
